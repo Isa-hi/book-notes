@@ -1,0 +1,37 @@
+<%- include("partials/navbar.ejs") %>
+<section class="d-flex justify-content-center">
+    <div class="col-10">
+        <div class="sort-container mt-4 ">
+            <h3>Filtrar por:</h3>
+            <!-- Botones para filtrar -->
+            <form action="/sort" method="POST"></form>
+                <input class="btn" type="submit" name="sort" value="A-Z">
+                <input class="btn" type="submit" name="sort" value="Z-A">
+                <input class="btn" type="submit" name="sort" value="Oldest">
+                <input class="btn" type="submit" name="sort" value="Newest">
+            </form>
+        </div>
+
+        <!-- Cards for each book review -->
+        <div class="cards-container mt-5 d-flex">
+            <% if (locals.books) {%>
+                <% locals.books.forEach(book => { %>
+                    <div class="col-12 col-lg-6 preview-container fluid-container mb-4">
+                        <div class="row">
+                            <div class="col">
+                                <img src="<%= book.book_cover_url  %>" alt="">
+                            </div>
+                            <div class="col">
+                                <h3><%= book.title %></h3>
+                                <p class="calificacion-body">Calificación <%= book.rating %> / 10</p>
+                                <p class="review-body"><%= book.fullreview %></p>
+                                <a class="btn" href="/view-review?id=<%= book.id %>">Leer reseña</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                <% }) %>
+            <% } %>
+
+    </div>
+</section>

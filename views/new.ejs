@@ -1,0 +1,48 @@
+<%- include('partials/navbar.ejs') %>
+<section class="d-flex fluid-container justify-content-center">
+    <div class="col-lg-8 create-review-container">
+        <a href="/" class="btn btn-goback mt-4">&lt; Go back</a>
+        <!-- Los siguientes if son para saber si está en edición o se está registrando un nuevo libro -->
+        <% if(locals.selected_book) {%>
+        <form action="/edit" method="post">
+            <!-- Parse the method to put because the form doesn't support put method -->
+            <!-- It won't throw error because the method is parsed before the route is invoked -->
+            <input type="hidden" name="_method" value="put">
+            <input type="hidden" name="id" value="<%= selected_book.id %>">
+        <% } else { %>
+        <form action="/new" method="post">
+        <% } %>
+            <div class="form-group mb-3 mt-4">
+                <% if(!locals.selected_book) {%>
+                <label for="book_value">ISBN Code</label>
+                <input type="text" class="form-control" id="book_value" name="book_value" required placeholder="Ingresa el código ISBN del libro">
+                <% } %>
+            </div>
+            <div class="row mb-3">
+                <div class="form-group col-md-6">
+                    <label for="title">Titulo del libro</label>
+                    <input type="text" class="form-control" id="title" name="title" required placeholder="Ingresa el titulo del libro"
+                    <% if(locals.selected_book) {%> value="<%= selected_book.title %>" <% } %>>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="rating">Calificación</label>
+                    <input type="number" class="form-control" id="rating" name="rating" min="1" max="10" required
+                    <% if(locals.selected_book) {%> value="<%= selected_book.rating %>" <% } %>>
+                </div>
+            </div>
+            <div class="form-group mb-3">
+                <label for="review">Cuerpo de la reseña</label>
+                <textarea class="form-control" id="full_review" name="full_review" rows="9" required placeholder="Escribe aquí tu reseña" maxlength="1000"
+                ><% if(locals.selected_book) {%><%= selected_book.fullreview %> <% } %>
+                </textarea>
+            </div>
+            <div class="d-flex fluid-container justify-content-center">
+                <button type="submit" class="btn btn-submit">
+                    <% if(locals.selected_book) {%>Editar reseña<% } else { %>
+                    Publicar reseña
+                    <% } %>
+                </button>
+            </div>
+        </form>
+    </div>
+</section>

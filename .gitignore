@@ -1,0 +1,28 @@
+node_modules/
+# Ignore environment variables
+.env
+
+# Ignore IDE specific files
+.idea/
+*.iml
+.vscode/
+
+# Ignore build files
+/dist/
+/build/
+
+# Ignore npm debug logs
+npm-debug.log*
+
+# Ignore database files
+*.sqlite
+
+# Ignore OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+*.log

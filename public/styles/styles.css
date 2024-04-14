@@ -1,0 +1,98 @@
+:root {
+    --primaryBlue: #102C57;
+    --primary-lightblue: #41C9E2;
+    --green: #2C7865;
+    --mobile-smallText: 18px;
+    --mobile-bigText: 26px;
+}
+/* NAVBAR.EJS */
+.navbar-container {
+    background: var(--primaryBlue);
+    height: 120px;
+}
+.navbar-container a{
+    background-color: var(--primary-lightblue);
+    color: white;
+    font-size: var(--mobile-smallText);
+    width: 150px;
+    font-weight: 700;
+}
+.navbar-container a:hover {
+    background-color: var(--primaryBlue);
+    color: white;
+}
+/* INDEX.EJS */
+body {
+    background: #FFF2E1;
+    height: 100vh;
+}
+.sort-container input{
+    background-color: var(--primary-lightblue);
+    color: white;
+    font-weight: 700;
+    font-size: var(--mobile-smallText);
+}
+
+/* Cards for the reviews */
+.preview-container {
+    height: 300px;
+}
+.preview-container .review-body{
+    overflow: hidden;
+    height: 150px; 
+}
+.cards-container {
+    flex-direction: column;
+}
+.preview-container img{
+    width: 150px;
+}
+.preview-container h3{
+    font-size: var(--mobile-bigText);
+    color: var(--primaryBlue);
+    font-weight: 700;
+}
+.preview-container .calificacion-body{
+    color: var(--primaryBlue);
+    font-weight: 600;
+}
+.preview-container a{
+    background-color: var(--green);
+    color: white;
+    font-weight: 700;
+}
+
+/* NEW.EJS */
+.create-review-container label {
+    font-weight: 500;
+    color: var(--primaryBlue);
+}
+.create-review-container .btn-submit{
+    background-color: var(--green);
+    color: white;
+    font-weight: 700;
+}
+.create-review-container .btn-goback{
+    background-color: var(--primary-lightblue);
+    font-weight: 700;
+    color: #fff;
+}
+
+
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {  }
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {  }
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {  }
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+    .cards-container {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}
